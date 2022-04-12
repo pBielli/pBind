@@ -126,6 +126,36 @@ fi
 
 success "selected version: v${VERSION}"
 
+#===================================================================================================================================================================================		
+
+#Setup Container
+setColor $Cyan
+base_echo "Do you want to create new Docker container?"
+stopColor
+
+flag=1
+while [ $flag == 1 ]
+do
+INPUT=$(prompt "(Y/n):")
+if [[ "$INPUT" == "Y" || "$INPUT" == "y" || "$INPUT" == "N" || "$INPUT" == "n" ]];then
+    flag=0
+else
+	error "wrong input"
+fi
+
+done
+if [[ "$INPUT" == "Y" || "$INPUT" == "y" ]];then
+	#yes
+	success "Creating Dockerfile"
+	curl -s -o Dockerfile "https://raw.githubusercontent.com/pBielli/pBind/master/versions/list/$VERSION/installer/Dockerfile"
+	docker build -t "pBind:$VERSION" .
+	docker run -t -i -p 4020-4025:20-25 -p 4000-4019:4000-4019 -p 4026-4050:4026-4050 --name=pBind_container --host-name=pBind_container "pBind:$VERSION"
+	exit 0
+fi
+#===================================================================================================================================================================================		
+
+
+
 #source /etc/pBind/environment
 PBIND=/home/server/pBind
 
