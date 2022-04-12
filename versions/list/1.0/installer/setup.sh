@@ -7,8 +7,8 @@ tech_p=/home/tech/.profile
 root_p=/root/.profile
 PBIND_PATH=/home/server/pBind
 backups=( $ssh_config $ftp_config $tech_p $root_p )
-FTP_PORT=4021
-SSH_PORT=4022
+FTP_PORT=21
+SSH_PORT=22
 
 source $PBIND_PATH/utils/includes/functions.sh
 
