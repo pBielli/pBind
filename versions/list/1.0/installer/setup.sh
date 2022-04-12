@@ -72,4 +72,4 @@ echo -e "${onload_code}" >> $tech_p
 echo -e "${onload_code}" >> $root_p
 
 mkdir -p $(dirname $PBIND_PATH)/apps
-bash $PBIND_PATH/configurations/welcome.sh
+bash $PBIND_PATH/installer/welcome.sh
