@@ -142,15 +142,15 @@ if [[ "$INPUT" == "Y" || "$INPUT" == "y" || "$INPUT" == "N" || "$INPUT" == "n" ]
 else
 	error "wrong input"
 fi
-
-
-
 done
+echo
+
 if [[ "$INPUT" == "Y" || "$INPUT" == "y" ]];then
 	#yes
 	curl -s -o Dockerfile "https://raw.githubusercontent.com/pBielli/pBind/master/versions/list/$VERSION/installer/Dockerfile"
 	success "Dockerfile created"
 	docker build -t pbind:$VERSION .
+	docker images pbind
 	success "Dockerfile builded"
 	warning "Creating Docker container..." 
 	docker run -p 4020-4025:20-25 -p 4000-4019:4000-4019 -p 4026-4050:4026-4050 --name=pBind_container --hostname=pBind_container pbind:$VERSION 
