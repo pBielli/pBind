@@ -152,8 +152,8 @@ if [[ "$INPUT" == "Y" || "$INPUT" == "y" ]];then
 	success "Dockerfile created"
 	docker build -t pbind:$VERSION .
 	success "Dockerfile builded"
-	warning "Creating Docker container..."
-	docker run -t -i -p 4020-4025:20-25 -p 4000-4019:4000-4019 -p 4026-4050:4026-4050 --name=pBind_container --hostname=pBind_container pbind:$VERSION
+	warning "Creating Docker container..." 
+	docker run -t -i -p 4020-4025:20-25 -p 4000-4019:4000-4019 -p 4026-4050:4026-4050 --name=pBind_container --hostname=pBind_container pbind:$VERSION 
 	exit 0
 fi
 #===================================================================================================================================================================================		
