@@ -136,7 +136,7 @@ stopColor
 flag=1
 while [ $flag == 1 ]
 do
-INPUT=$(prompt "(Y/n):")
+INPUT=$(prompt "(Y/n)")
 if [[ "$INPUT" == "Y" || "$INPUT" == "y" || "$INPUT" == "N" || "$INPUT" == "n" ]];then
     flag=0
 else
