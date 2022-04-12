@@ -143,6 +143,8 @@ else
 	error "wrong input"
 fi
 
+
+
 done
 if [[ "$INPUT" == "Y" || "$INPUT" == "y" ]];then
 	#yes
