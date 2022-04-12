@@ -153,7 +153,7 @@ if [[ "$INPUT" == "Y" || "$INPUT" == "y" ]];then
 	docker images pbind
 	success "Dockerfile builded"
 	warning "Creating Docker container..." 
-	docker run -p 4020-4025:20-25 -p 4000-4019:4000-4019 -p 4026-4050:4026-4050 --name=pBind_container --hostname=pBind_container pbind:$VERSION 
+	docker run -ti -d -p 4020-4025:20-25 -p 4000-4019:4000-4019 -p 4026-4050:4026-4050 --name=pBind_container --hostname=pBind_container pbind:$VERSION 
 	success "Docker container created"
 	docker start pBind_container
 	docker exec pBind_container curl -o /home/get.sh -s "https://raw.githubusercontent.com/pBielli/pBind/master/versions/get.sh" 
