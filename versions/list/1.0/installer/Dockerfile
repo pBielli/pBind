@@ -10,7 +10,7 @@ EXPOSE 4000-4100/udp
 # Create Folder
 RUN mkdir -p /home/server  
 # Install dependencies
-RUN atp-get update && \
+RUN apt-get update && \
 apt-get install sudo git vsftpd curl nano jq subversion -y && \
 sudo DEBIAN_FRONTEND=noninteractive apt-get -y install openssh-server
 RUN curl -fsSL https://deb.nodesource.com/setup_17.x | sudo -E bash - && \
