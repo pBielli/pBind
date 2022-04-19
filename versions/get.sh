@@ -203,14 +203,14 @@ if [[ "$ACTION" == "i" ]];then
 #unset, so install it completelly
         OPERATION="Installation"
         warning "Starting installation..."
-        bash $(find "pBind/" -name "install.sh")
-        bash $(find "pBind/" -name "setup.sh")
+        bash $(find "${PBIND}/" -name "install.sh")
+        bash $(find "${PBIND}/" -name "setup.sh")
 else
         OPERATION=Update
         warning "Updating"
 fi
 
-bash $(find "pBind/" -name "purge.sh")
+bash $(find "${PBIND}/" -name "purge.sh")
 
 success "${OPERATION} completed"
 
