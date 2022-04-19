@@ -67,6 +67,8 @@ curl -s "https://raw.githubusercontent.com/pBielli/pBind/master/versions/list/${
 
 #clear
 success "\nLoading..."
+warning "Installing the necessary commands"
+apt-get install jq subversion -y
 #apt-get install jq -y
 #apt-get install subversion -y
 
