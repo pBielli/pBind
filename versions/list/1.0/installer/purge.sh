@@ -1,7 +1,7 @@
 #!/bin/bash
 source /etc/pBind/environment
 
-chown -R tech $(dirname $PBIND_PATH)
+chown -R tech:sudo $(dirname $PBIND_PATH)
 chmod -R 770 $(dirname $PBIND_PATH)
 chmod -R 110 $PBIND_PATH
 

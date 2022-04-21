@@ -6,11 +6,20 @@ enviroment=/etc/pBind/environment
 tech_p=/home/tech/.profile
 root_p=/root/.profile
 PBIND_PATH=/home/server/pBind
-backups=( ssh_config ftp_config tech_p root_p )
-FTP_PORT=4021
-SSH_PORT=4022
+backups=( $ssh_config $ftp_config $tech_p $root_p )
+FTP_PORT=21
+SSH_PORT=22
 
 source $PBIND_PATH/utils/includes/functions.sh
+
+#make backups
+title "Backup hot files"
+for el in "${backups[@]}";do
+	cp $el "$PBIND_PATH/.bak/"
+	success "$el bk created"
+done
+success "complete"
+
 
 #Create new First User
 adduser --disabled-password --gecos "" tech
@@ -51,14 +60,6 @@ if [[ ! -f $enviroment ]];then
 fi
 success "complete"
 
-#make backups
-title "Backup hot files"
-for el in "${backups[@]}";do
-	cp $el $PBIND_PATH/.bak/
-	success "$el bk created"
-done
-success "complete"
-
 #Setup PBIND_PATH and pBind command
 title "Setup Variables and commands"
 echo -e "\n#INJECTED CODE - pBind
@@ -72,4 +73,4 @@ echo -e "${onload_code}" >> $tech_p
 echo -e "${onload_code}" >> $root_p
 
 mkdir -p $(dirname $PBIND_PATH)/apps
-bash $PBIND_PATH/configurations/welcome.sh
+bash $PBIND_PATH/installer/welcome.sh

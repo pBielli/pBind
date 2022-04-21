@@ -2,7 +2,7 @@
 source /etc/pBind/environment
 source "${PBIND_PATH}/utils/includes/functions.sh"
 
-if (($1 == "STOP" || $1 == "stop" ||$1 == "kill" ||$1 == "-s"));then
+if [["$1" == "STOP" || "$1" == "stop" || "$1" == "kill" || "$1" == "-s"]];then
 title "SERVER" "services ${Red}stop" "ssh,ftp"
 list_element "1/2" "SSH"
 service ssh stop

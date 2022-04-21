@@ -12,6 +12,15 @@ SSH_PORT=22
 
 source $PBIND_PATH/utils/includes/functions.sh
 
+#make backups
+title "Backup hot files"
+for el in "${backups[@]}";do
+	cp $el "$PBIND_PATH/.bak/"
+	success "$el bk created"
+done
+success "complete"
+
+
 #Create new First User
 adduser --disabled-password --gecos "" tech
 usermod -aG sudo tech
@@ -49,14 +58,6 @@ if [[ ! -f $enviroment ]];then
 	touch $enviroment
 	info "$enviroment created"
 fi
-success "complete"
-
-#make backups
-title "Backup hot files"
-for el in "${backups[@]}";do
-	cp $el "$PBIND_PATH/.bak/"
-	success "$el bk created"
-done
 success "complete"
 
 #Setup PBIND_PATH and pBind command
