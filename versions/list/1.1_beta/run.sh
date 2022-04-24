@@ -1,6 +1,6 @@
 #!/bin/bash
 source /etc/pBind/environment
-#source "${PBIND_PATH}/utils/includes/functions.sh"
+source "${PBIND_PATH}/utils/includes/functions.sh"
 
 if [[ $1 == "start" || $1 == "run" ]];then
 ${PBIND_PATH}/app/start.sh $2
@@ -14,5 +14,12 @@ fi
 
 if [[ $1 == "services" || $1 == "remote" ]];then
 ${PBIND_PATH}/services.sh $2
+exit 1
+fi
+
+if [[ $1 == "welcome" ]];then
+base_echo "\n  ${BGreen}WELCOME${NC}!!!"
+base_echo "   ${Cyan}pBind${NC} command loaded\n"
+
 exit 1
 fi
