@@ -65,7 +65,7 @@ title "Setup Variables and commands"
 echo -e "\n#INJECTED CODE - pBind
 PBIND_PATH=$PBIND_PATH
 function pBind  {
-bash \$PBIND_PATH/run.sh $@
+bash \$PBIND_PATH/run.sh \$@
 }" >> $enviroment
 
 #Setup including bash command on login
